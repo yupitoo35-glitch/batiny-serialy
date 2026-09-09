@@ -40,36 +40,20 @@
         .meta { color: var(--text-muted); font-size: 13px; margin-bottom: 10px; }
         .desc { font-size: 14px; color: #e0e0e0; margin-bottom: 15px; }
         
-        .btn {
+        /* Кнопка-ссылка */
+        .btn-link {
+            display: block;
             background-color: var(--accent);
             color: white;
-            border: none;
-            padding: 10px;
+            text-decoration: none;
+            padding: 12px;
             border-radius: 6px;
-            cursor: pointer;
             font-weight: bold;
             width: 100%;
             text-align: center;
+            transition: opacity 0.2s;
         }
-        .btn:hover { opacity: 0.9; }
-
-        /* Окно плеера */
-        .player-container {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 9999;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-        .player-box { width: 90%; max-width: 850px; position: relative; display: flex; flex-direction: column; }
-        iframe { width: 100%; height: 480px; border: none; border-radius: 8px; background: #000; }
-        .close-btn {
-            background: #ff4a5a; color: #fff; border: none; padding: 10px 20px;
-            border-radius: 5px; cursor: pointer; font-weight: bold; margin-bottom: 15px; align-self: flex-end;
-        }
+        .btn-link:hover { opacity: 0.9; }
     </style>
 </head>
 <body>
@@ -88,8 +72,8 @@
                         <div class="meta">2008 • Криминал, Драма</div>
                         <p class="desc">Учитель химии начинает делать серьезный бизнес. Шедевр, который батя пересматривает раз в год.</p>
                     </div>
-                    <!-- Прямая готовая ссылка на плеер -->
-                    <button class="btn" onclick="openPlayer('https://kinobd.net')">▶ Включить</button>
+                    <!-- Открывает плеер в новой вкладке. Никакого JS и старых доменов! -->
+                    <a href="https://kinobd.net" target="_blank" class="btn-link">▶ Смотреть сериал</a>
                 </div>
             </div>
 
@@ -102,7 +86,7 @@
                         <div class="meta">2013 • Криминал, Драма</div>
                         <p class="desc">Британские разборки на стиле. Кепки со лезвиями, крутые костюмы и семейный бизнес Томаса Шелби.</p>
                     </div>
-                    <button class="btn" onclick="openPlayer('https://kinobd.net')">▶ Включить</button>
+                    <a href="https://kinobd.net" target="_blank" class="btn-link">▶ Смотреть сериал</a>
                 </div>
             </div>
 
@@ -115,33 +99,11 @@
                         <div class="meta">2014 • Детектив, Триллер</div>
                         <p class="desc">Философские разговоры Раста Коула в машине, суровые копы и мрачное запутанное дело в глуши Луизианы.</p>
                     </div>
-                    <button class="btn" onclick="openPlayer('https://kinobd.net')">▶ Включить</button>
+                    <a href="https://kinobd.net" target="_blank" class="btn-link">▶ Смотреть сериал</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="player-container" id="playerModal">
-        <div class="player-box">
-            <button class="close-btn" onclick="closePlayer()">❌ Закрыть плеер</button>
-            <div id="iframePlace"></div>
-        </div>
-    </div>
-
-    <script>
-        function openPlayer(playerUrl) {
-            const modal = document.getElementById('playerModal');
-            const iframePlace = document.getElementById('iframePlace');
-            
-            // Просто вставляем готовую ссылку без каких-либо склеек текста
-            iframePlace.innerHTML = '<iframe src="' + playerUrl + '" allowfullscreen></iframe>';
-            modal.style.display = 'flex';
-        }
-
-        function closePlayer() {
-            document.getElementById('playerModal').style.display = 'none';
-            document.getElementById('iframePlace').innerHTML = '';
-        }
-    </script>
 </body>
 </html>

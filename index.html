@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Батины сериалы</title>
     <style>
-        /* Стильная темная тема */
         :root {
             --bg-dark: #0f1115;
             --bg-card: #181c24;
@@ -25,7 +24,6 @@
         h1 span { color: var(--accent); }
         .subtitle { color: var(--text-muted); margin-bottom: 30px; font-size: 14px; }
         
-        /* Сетка каталога */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .card {
             background-color: var(--bg-card);
@@ -42,7 +40,6 @@
         .meta { color: var(--text-muted); font-size: 13px; margin-bottom: 10px; }
         .desc { font-size: 14px; color: #e0e0e0; margin-bottom: 15px; }
         
-        /* Кнопка включения */
         .btn {
             background-color: var(--accent);
             color: white;
@@ -73,7 +70,6 @@
             background: #ff4a5a; color: #fff; border: none; padding: 10px 20px;
             border-radius: 5px; cursor: pointer; font-weight: bold; margin-bottom: 15px; align-self: flex-end;
         }
-        .close-btn:hover { background: #e03d4d; }
     </style>
 </head>
 <body>
@@ -92,7 +88,8 @@
                         <div class="meta">2008 • Криминал, Драма</div>
                         <p class="desc">Учитель химии начинает делать серьезный бизнес. Шедевр, который батя пересматривает раз в год.</p>
                     </div>
-                    <button class="btn" onclick="openPlayer('404900')">▶ Включить</button>
+                    <!-- Прямая готовая ссылка на плеер -->
+                    <button class="btn" onclick="openPlayer('https://kinobd.net')">▶ Включить</button>
                 </div>
             </div>
 
@@ -105,7 +102,7 @@
                         <div class="meta">2013 • Криминал, Драма</div>
                         <p class="desc">Британские разборки на стиле. Кепки со лезвиями, крутые костюмы и семейный бизнес Томаса Шелби.</p>
                     </div>
-                    <button class="btn" onclick="openPlayer('716587')">▶ Включить</button>
+                    <button class="btn" onclick="openPlayer('https://kinobd.net')">▶ Включить</button>
                 </div>
             </div>
 
@@ -118,13 +115,12 @@
                         <div class="meta">2014 • Детектив, Триллер</div>
                         <p class="desc">Философские разговоры Раста Коула в машине, суровые копы и мрачное запутанное дело в глуши Луизианы.</p>
                     </div>
-                    <button class="btn" onclick="openPlayer('685246')">▶ Включить</button>
+                    <button class="btn" onclick="openPlayer('https://kinobd.net')">▶ Включить</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Модальное окно с плеером -->
     <div class="player-container" id="playerModal">
         <div class="player-box">
             <button class="close-btn" onclick="closePlayer()">❌ Закрыть плеер</button>
@@ -133,12 +129,12 @@
     </div>
 
     <script>
-        function openPlayer(kpId) {
+        function openPlayer(playerUrl) {
             const modal = document.getElementById('playerModal');
             const iframePlace = document.getElementById('iframePlace');
             
-            // Заменили на сверхустойчивый бесплатный плеер Кинобд
-            iframePlace.innerHTML = '<iframe src="https://kinobd.net' + kpId + '" allowfullscreen></iframe>';
+            // Просто вставляем готовую ссылку без каких-либо склеек текста
+            iframePlace.innerHTML = '<iframe src="' + playerUrl + '" allowfullscreen></iframe>';
             modal.style.display = 'flex';
         }
 

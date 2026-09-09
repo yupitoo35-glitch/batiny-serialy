@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Батины сериалы</title>
     <style>
-        /* Стильная темная тема */
         :root {
             --bg-dark: #0f1115;
             --bg-card: #181c24;
@@ -25,7 +24,6 @@
         h1 span { color: var(--accent); }
         .subtitle { color: var(--text-muted); margin-bottom: 30px; font-size: 14px; }
         
-        /* Сетка каталога */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .card {
             background-color: var(--bg-card);
@@ -42,7 +40,6 @@
         .meta { color: var(--text-muted); font-size: 13px; margin-bottom: 10px; }
         .desc { font-size: 14px; color: #e0e0e0; margin-bottom: 15px; }
         
-        /* Кнопка включения */
         .btn {
             background-color: var(--accent);
             color: white;
@@ -56,7 +53,6 @@
         }
         .btn:hover { opacity: 0.9; }
 
-        /* Окно плеера */
         .player-container {
             display: none;
             position: fixed;
@@ -103,7 +99,7 @@
                     <div>
                         <div class="title-row"><span>Острые козырьки</span><span class="rating">⭐ 8.8</span></div>
                         <div class="meta">2013 • Криминал, Драма</div>
-                        <p class="desc">Британские разборки на стиле. Кепки со лезвиями, крутые костюмы и семейный бизнес Томаса Шелби.</p>
+                        <p class="desc">Британские разборки на стиле. Кепки со лезвиями, крутые костюмы и семейный бизнес Томаса Шελби.</p>
                     </div>
                     <button class="btn" onclick="openPlayer('716587')">▶ Включить</button>
                 </div>
@@ -124,7 +120,6 @@
         </div>
     </div>
 
-    <!-- Модальное окно с плеером -->
     <div class="player-container" id="playerModal">
         <div class="player-box">
             <button class="close-btn" onclick="closePlayer()">❌ Закрыть плеер</button>
@@ -137,7 +132,7 @@
             const modal = document.getElementById('playerModal');
             const iframePlace = document.getElementById('iframePlace');
             
-            // Используем вечный бессбойный плеер Kinobox
+            // Железный плеер Kinobox, тут ошибки с адресом быть не может
             iframePlace.innerHTML = '<iframe src="https://kinobox.in' + kpId + '" allowfullscreen></iframe>';
             modal.style.display = 'flex';
         }

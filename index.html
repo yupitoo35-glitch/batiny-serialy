@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Батины сериалы</title>
     <style>
+        /* Стильная темная тема */
         :root {
             --bg-dark: #0f1115;
             --bg-card: #181c24;
@@ -24,6 +25,7 @@
         h1 span { color: var(--accent); }
         .subtitle { color: var(--text-muted); margin-bottom: 30px; font-size: 14px; }
         
+        /* Сетка каталога */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .card {
             background-color: var(--bg-card);
@@ -40,6 +42,7 @@
         .meta { color: var(--text-muted); font-size: 13px; margin-bottom: 10px; }
         .desc { font-size: 14px; color: #e0e0e0; margin-bottom: 15px; }
         
+        /* Кнопка включения */
         .btn {
             background-color: var(--accent);
             color: white;
@@ -77,7 +80,7 @@
 
     <div class="container">
         <h1>👔 Батины <span>сериалы</span></h1>
-        <div class="subtitle">Золотой фонд гаражного кооператива. Прямой запуск без VPN и редиректов.</div>
+        <div class="subtitle">Золотой фонд гаражного кооператива. Без VPN, редиректов и блокировок.</div>
 
         <div class="grid">
             <!-- Сериал 1 -->
@@ -89,7 +92,6 @@
                         <div class="meta">2008 • Криминал, Драма</div>
                         <p class="desc">Учитель химии начинает делать серьезный бизнес. Шедевр, который батя пересматривает раз в год.</p>
                     </div>
-                    <!-- Подключили стабильный lordfilm по ID Кинопоиска -->
                     <button class="btn" onclick="openPlayer('404900')">▶ Включить</button>
                 </div>
             </div>
@@ -135,8 +137,8 @@
             const modal = document.getElementById('playerModal');
             const iframePlace = document.getElementById('iframePlace');
             
-            // Чистый плеер Lordfilm, открывающий видео сразу по ID
-            iframePlace.innerHTML = '<iframe src="https://lordfilm.cx' + kpId + '" allowfullscreen></iframe>';
+            // Используем вечный бессбойный плеер Kinobox
+            iframePlace.innerHTML = '<iframe src="https://kinobox.in' + kpId + '" allowfullscreen></iframe>';
             modal.style.display = 'flex';
         }
 

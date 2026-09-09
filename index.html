@@ -76,7 +76,7 @@
 
     <div class="container">
         <h1>👔 Батины <span>сериалы</span></h1>
-        <div class="subtitle">Золотой фонд гаражного кооператива. Без VPN, редиректов и блокировок.</div>
+        <div class="subtitle">Золотой фонд гаражного кооператива. Работает без VPN.</div>
 
         <div class="grid">
             <!-- Сериал 1 -->
@@ -88,7 +88,8 @@
                         <div class="meta">2008 • Криминал, Драма</div>
                         <p class="desc">Учитель химии начинает делать серьезный бизнес. Шедевр, который батя пересматривает раз в год.</p>
                     </div>
-                    <button class="btn" onclick="openPlayer('404900')">▶ Включить</button>
+                    <!-- Передаем сразу готовую рабочую ссылку на плеер без склеек -->
+                    <button class="btn" onclick="openPlayer('https://kinobox.net')">▶ Включить</button>
                 </div>
             </div>
 
@@ -99,9 +100,9 @@
                     <div>
                         <div class="title-row"><span>Острые козырьки</span><span class="rating">⭐ 8.8</span></div>
                         <div class="meta">2013 • Криминал, Драма</div>
-                        <p class="desc">Британские разборки на стиле. Кепки со лезвиями, крутые костюмы и семейный бизнес Томаса Шελби.</p>
+                        <p class="desc">Британские разборки на стиле. Кепки со лезвиями, крутые костюмы и семейный бизнес Томаса Шелби.</p>
                     </div>
-                    <button class="btn" onclick="openPlayer('716587')">▶ Включить</button>
+                    <button class="btn" onclick="openPlayer('https://kinobox.net')">▶ Включить</button>
                 </div>
             </div>
 
@@ -114,12 +115,13 @@
                         <div class="meta">2014 • Детектив, Триллер</div>
                         <p class="desc">Философские разговоры Раста Коула в машине, суровые копы и мрачное запутанное дело в глуши Луизианы.</p>
                     </div>
-                    <button class="btn" onclick="openPlayer('685246')">▶ Включить</button>
+                    <button class="btn" onclick="openPlayer('https://kinobox.net')">▶ Включить</button>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Модальное окно с плеером -->
     <div class="player-container" id="playerModal">
         <div class="player-box">
             <button class="close-btn" onclick="closePlayer()">❌ Закрыть плеер</button>
@@ -128,12 +130,12 @@
     </div>
 
     <script>
-        function openPlayer(kpId) {
+        function openPlayer(fullUrl) {
             const modal = document.getElementById('playerModal');
             const iframePlace = document.getElementById('iframePlace');
             
-            // Железный плеер Kinobox, тут ошибки с адресом быть не может
-            iframePlace.innerHTML = '<iframe src="https://kinobox.in' + kpId + '" allowfullscreen></iframe>';
+            // Просто вставляем чистую ссылку в плеер, без кавычек и плюсов в коде
+            iframePlace.innerHTML = '<iframe src="' + fullUrl + '" allowfullscreen></iframe>';
             modal.style.display = 'flex';
         }
 
